@@ -13,6 +13,19 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object dbgrd1: TDBGrid
+    Left = 8
+    Top = 56
+    Width = 833
+    Height = 120
+    DataSource = ds1
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
   object qry1: TADOQuery
     Active = True
     Connection = con1

@@ -4,13 +4,14 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DB, ADODB;
+  Dialogs, DB, ADODB, Grids, DBGrids;
 
 type
   TForm1 = class(TForm)
     qry1: TADOQuery;
     con1: TADOConnection;
     ds1: TDataSource;
+    dbgrd1: TDBGrid;
   private
     { Private declarations }
   public
