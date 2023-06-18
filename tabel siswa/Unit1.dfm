@@ -261,6 +261,15 @@ object Form1: TForm1
     Height = 21
     TabOrder = 11
   end
+  object btn1: TButton
+    Left = 600
+    Top = 168
+    Width = 89
+    Height = 25
+    Caption = 'TAMBAH DATA'
+    TabOrder = 12
+    OnClick = btn1Click
+  end
   object qry1: TADOQuery
     Active = True
     Connection = con1

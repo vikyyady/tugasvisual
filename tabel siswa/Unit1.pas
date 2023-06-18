@@ -35,6 +35,8 @@ type
     Edit8: TEdit;
     Edit9: TEdit;
     Edit10: TEdit;
+    btn1: TButton;
+    procedure btn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,4 +50,40 @@ implementation
 
 {$R *.dfm}
 
+procedure TForm1.btn1Click(Sender: TObject);
+var
+  strSQL: string;
+begin
+  // Menjalankan perintah INSERT INTO menggunakan ExecSQL
+  strSQL := 'INSERT INTO tabel_siswa (id_siswa, nis, nim, nama_siswa, nik, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, no_telepon, status) ' +
+            'VALUES (:Nilai1, :Nilai2, :Nilai3, :Nilai4, :Nilai5, :Nilai6, :Nilai7, :Nilai8, :Nilai9, :Nilai10, :Nilai11)';
+  qry1.SQL.Text := strSQL;
+  qry1.Parameters.ParamByName('Nilai1').Value := Edit1.Text;
+  qry1.Parameters.ParamByName('Nilai2').Value := Edit2.Text;
+  qry1.Parameters.ParamByName('Nilai3').Value := Edit3.Text;
+  qry1.Parameters.ParamByName('Nilai4').Value := Edit4.Text;
+  qry1.Parameters.ParamByName('Nilai5').Value := Edit5.Text;
+  qry1.Parameters.ParamByName('Nilai6').Value := Edit6.Text;
+  qry1.Parameters.ParamByName('Nilai7').Value := FormatDateTime('yyyy-mm-dd', dtp1.Date);
+  qry1.Parameters.ParamByName('Nilai8').Value := Edit7.Text;
+  qry1.Parameters.ParamByName('Nilai9').Value := Edit8.Text;
+  qry1.Parameters.ParamByName('Nilai10').Value := Edit9.Text;
+  qry1.Parameters.ParamByName('Nilai11').Value := Edit10.Text;
+
+  try
+    qry1.ExecSQL;
+    ShowMessage('Data berhasil ditambahkan.');
+
+    // Memperbarui TDBGrid dengan menjalankan perintah SELECT terpisah
+    strSQL := 'SELECT * FROM tabel_siswa';
+    qry1.SQL.Text := strSQL;
+    qry1.Active := True;
+    ds1.DataSet := qry1;
+  except
+    on E: Exception do
+      ShowMessage('Error saat menambahkan data: ' + E.Message);
+  end;
+end;
+
 end.
+
