@@ -288,6 +288,15 @@ object Form1: TForm1
     TabOrder = 14
     OnClick = btn3Click
   end
+  object btn4: TButton
+    Left = 600
+    Top = 184
+    Width = 89
+    Height = 25
+    Caption = 'EDIT DATA'
+    TabOrder = 15
+    OnClick = btn4Click
+  end
   object qry1: TADOQuery
     Active = True
     Connection = con1

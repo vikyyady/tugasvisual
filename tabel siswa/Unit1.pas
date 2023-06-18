@@ -38,9 +38,11 @@ type
     btn1: TButton;
     btn2: TButton;
     btn3: TButton;
+    btn4: TButton;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
+    procedure btn4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,6 +118,63 @@ begin
         on E: Exception do
           ShowMessage('Error saat menghapus data: ' + E.Message);
       end;
+    end;
+  end
+  else
+    ShowMessage('Tidak ada data yang dipilih.');
+end;
+
+procedure TForm1.btn4Click(Sender: TObject);
+var
+  fieldName: string;
+  editedField: TField;
+begin
+  if not qry1.IsEmpty then
+  begin
+    try
+      qry1.Edit;
+
+      // Mendapatkan nama kolom yang diubah
+      editedField := qry1.FindField(dbgrd1.SelectedField.FieldName);
+      if Assigned(editedField) then
+      begin
+        fieldName := editedField.FieldName;
+
+        // Memperbarui nilai kolom yang diubah
+        if fieldName = 'id_siswa' then
+        begin
+          // Check if Edit1.Text is not empty before updating 'id_siswa' field
+          if Edit1.Text <> '' then
+            qry1.FieldByName(fieldName).Value := Edit1.Text;
+        end
+        else if fieldName = 'nis' then
+          qry1.FieldByName(fieldName).Value := Edit2.Text
+        else if fieldName = 'nim' then
+          qry1.FieldByName(fieldName).Value := Edit3.Text
+        else if fieldName = 'nama_siswa' then
+          qry1.FieldByName(fieldName).Value := Edit4.Text
+        else if fieldName = 'nik' then
+          qry1.FieldByName(fieldName).Value := Edit5.Text
+        else if fieldName = 'tempat_lahir' then
+          qry1.FieldByName(fieldName).Value := Edit6.Text
+        else if fieldName = 'tanggal_lahir' then
+          qry1.FieldByName(fieldName).Value := dtp1.Date
+        else if fieldName = 'jenis_kelamin' then
+          qry1.FieldByName(fieldName).Value := Edit7.Text
+        else if fieldName = 'alamat' then
+          qry1.FieldByName(fieldName).Value := Edit8.Text
+        else if fieldName = 'no_telepon' then
+          qry1.FieldByName(fieldName).Value := Edit9.Text
+        else if fieldName = 'status' then
+          qry1.FieldByName(fieldName).Value := Edit10.Text;
+        // Tambahkan kondisi untuk kolom lainnya jika perlu
+
+        qry1.Post;
+        ShowMessage('Data berhasil diperbarui.');
+      end;
+    except
+      on E: Exception do
+        ShowMessage('Error saat memperbarui data: ' + E.Message);
     end;
   end
   else
