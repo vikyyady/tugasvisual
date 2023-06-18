@@ -279,6 +279,15 @@ object Form1: TForm1
     TabOrder = 13
     OnClick = btn2Click
   end
+  object btn3: TButton
+    Left = 600
+    Top = 144
+    Width = 89
+    Height = 25
+    Caption = 'HAPUS DATA'
+    TabOrder = 14
+    OnClick = btn3Click
+  end
   object qry1: TADOQuery
     Active = True
     Connection = con1

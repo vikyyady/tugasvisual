@@ -37,8 +37,10 @@ type
     Edit10: TEdit;
     btn1: TButton;
     btn2: TButton;
+    btn3: TButton;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -99,6 +101,25 @@ begin
   Edit8.Clear;
   Edit9.Clear;
   Edit10.Clear;
+end;
+
+procedure TForm1.btn3Click(Sender: TObject);
+begin
+  if not qry1.IsEmpty then
+  begin
+    if MessageDlg('Apakah Anda yakin ingin menghapus data ini?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      try
+        qry1.Delete;
+        ShowMessage('Data berhasil dihapus.');
+      except
+        on E: Exception do
+          ShowMessage('Error saat menghapus data: ' + E.Message);
+      end;
+    end;
+  end
+  else
+    ShowMessage('Tidak ada data yang dipilih.');
 end;
 
 end.
