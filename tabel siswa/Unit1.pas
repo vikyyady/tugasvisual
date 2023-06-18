@@ -39,10 +39,12 @@ type
     btn2: TButton;
     btn3: TButton;
     btn4: TButton;
+    btn5: TButton;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
+    procedure btn5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -179,6 +181,11 @@ begin
   end
   else
     ShowMessage('Tidak ada data yang dipilih.');
+end;
+
+procedure TForm1.btn5Click(Sender: TObject);
+begin
+ Close
 end;
 
 end.

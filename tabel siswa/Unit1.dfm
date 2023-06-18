@@ -272,7 +272,7 @@ object Form1: TForm1
   end
   object btn2: TButton
     Left = 704
-    Top = 96
+    Top = 120
     Width = 89
     Height = 25
     Caption = 'CLEAR'
@@ -296,6 +296,15 @@ object Form1: TForm1
     Caption = 'EDIT DATA'
     TabOrder = 15
     OnClick = btn4Click
+  end
+  object btn5: TButton
+    Left = 704
+    Top = 168
+    Width = 89
+    Height = 25
+    Caption = 'KELUAR'
+    TabOrder = 16
+    OnClick = btn5Click
   end
   object qry1: TADOQuery
     Active = True
