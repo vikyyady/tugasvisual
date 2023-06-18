@@ -36,7 +36,9 @@ type
     Edit9: TEdit;
     Edit10: TEdit;
     btn1: TButton;
+    btn2: TButton;
     procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,6 +85,20 @@ begin
     on E: Exception do
       ShowMessage('Error saat menambahkan data: ' + E.Message);
   end;
+end;
+
+procedure TForm1.btn2Click(Sender: TObject);
+begin
+  Edit1.Clear;
+  Edit2.Clear;
+  Edit3.Clear;
+  Edit4.Clear;
+  Edit5.Clear;
+  Edit6.Clear;
+  Edit7.Clear;
+  Edit8.Clear;
+  Edit9.Clear;
+  Edit10.Clear;
 end;
 
 end.
